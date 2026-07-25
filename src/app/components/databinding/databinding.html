@@ -1,0 +1,38 @@
+<h2 class="text-center">Let's Learn DataBinding</h2>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>User Name: {{userName}}</div>
+  <div>User Name: <span [innerText]="userName"></span></div>
+
+  <div>
+    <img src="{{img_url}}" alt="" width="200" height="200" />
+    <img [src]="img_url" alt="" width="200" height="200" />
+    <img bind-src="img_url" alt="" width="200" height="200" />
+  </div>
+
+  <div class="my-2">
+    1 way: <input type="text" value="{{userName}}">
+    1 way: <input type="text" [value]="userName" class="mx-2">
+    1 way: <input type="text" bind-value="userName" class="mx-2">
+    2 way: <input type="text" [(ngModel)]="userName" class="mx-2">
+  </div>
+
+  <div>
+    <button disabled="{{flag}}" class="btn btn-primary">Click me</button>
+    <button [disabled]="flag" class="btn btn-primary mx-2">Click me</button>
+    <button bind-disabled="flag" class="btn btn-primary">Click me</button>
+
+    <button (click)="toggleFlag()" class="btn btn-primary mx-2">Toggle Flag</button>
+    <span>Flag:{{flag}}</span>
+  </div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-1: Have a paragraph and a toggle button; on clicking the button, control the visibility (Show / Hide)
+    of the paragraph.</div>
+
+  <h1 [hidden]="flag">Hellooooo!!!! Good Morning</h1>
+  <button class="btn btn-primary" (click)="toggleFlag()">
+    {{flag ? 'SHOW' : 'HIDE'}}
+  </button>
+</div>
