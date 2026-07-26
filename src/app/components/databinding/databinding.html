@@ -98,3 +98,46 @@
   <div>Selected State: {{selectedState}}</div>
 </div>
 
+<div class="border border-2 rounded-2 p-2 m-2">
+   <div>Assignment-7: Create a textarea with maxLength = 100; count words, characters, and remaining characters as the user types.</div>
+    <textarea [(ngModel)]="text" maxlength="100" rows="4" class="form-control my-2" placeholder="Start typing..."></textarea>
+   <div>Characters Typed: {{ text.length }}</div>
+   <div>Remaining Characters: {{100-text.length}}</div>
+   <div>Word Count: {{ getWordCount() }}</div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-8: Create two input boxes and a dropdown (+, -, *, /) and perform arithmetic operations based on the selected operator.</div>
+
+  <input type="number" [(ngModel)]="num1" placeholder="Enter first number" class="mx-2">
+
+  <select [(ngModel)]="operator" class="mx-2">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+
+  <input type="number" [(ngModel)]="num2" placeholder="Enter first number" class="mx-2">
+
+  <div class="my-2">Result: {{ getResult() }}</div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-9: Create a button that increases font size and another that decreases font size for a paragraph.</div>
+
+  <p [style.fontSize.px]="fontSize"> This text will grow or shrink!</p>
+
+  <button class="btn btn-success mx-2" (click)="increaseFont()">A+</button>
+  <button class="btn btn-success mx-2" (click)="decreaseFont()">A-</button>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-10: Create a dropdown with colors and change the background color of a div based on selection.</div>
+
+<select [(ngModel)] = "selectedColor" class="mx-2 my-2">
+  "<option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+</select>
+
+<div [style.backgroundColor]="selectedColor" style="width: 200px; height:100px;">  </div>
+</div>

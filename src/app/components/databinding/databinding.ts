@@ -60,5 +60,49 @@ export class Databinding {
   stateChanged(event: any) {
     this.selectedState = event.target.value;
   }
+
+  text='';
+
+  getWordCount(): number {
+    if(!this.text.trim()){
+      return 0;
+    }
+    return this.text.trim().split(/\s+/).length;
+  }
+
+  num1 = 0;
+  num2 = 0;
+  operator = '+';
+
+  getResult(): number | string {
+    if (this.operator === '+') {
+      return this.num1 + this.num2;
+    } else if (this.operator === '-') {
+      return this.num1 - this.num2;
+    } else if (this.operator === '*') {
+      return this.num1 * this.num2;
+    } else if (this.operator === '/') {
+      return this.num2 === 0 ? 'Cannot divide by 0' : this.num1 / this.num2;
+    }
+    return 0;
+  }
+
+  fontSize = 16;
+
+  increaseFont(){
+    this.fontSize += 2;
+  }
+
+  decreaseFont(){
+    if(this.fontSize > 8){
+      this.fontSize -=  2;
+    }
+  }
+
+  colors = ['Red', 'Green', 'Blue', 'Yellow', 'Purple', 'Orange'];
+  selectedColor = 'Red';
 }
+
+
+
 
