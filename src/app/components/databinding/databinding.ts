@@ -28,6 +28,8 @@ export class Databinding {
       this.showPassword = !this.showPassword;
     }
 
+
+
     count = 0;
     increment(){
       this.count++;
@@ -38,7 +40,7 @@ export class Databinding {
     }
 
     reset(){
-      this.count++;
+      this.count = 0;
     }
 
     celsius=0;
@@ -55,7 +57,8 @@ export class Databinding {
       }
     }
 
-
+  stateChanged(event: any) {
+    this.selectedState = event.target.value;
+  }
 }
-
 
