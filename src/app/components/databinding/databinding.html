@@ -36,3 +36,49 @@
     {{flag ? 'SHOW' : 'HIDE'}}
   </button>
 </div>
+
+<div class = "border border-2 rounded-2 p-2 m-2">
+   <div>Assignment-2: Create a dropdown with state names; when the user changes the dropdown value, print the selected value in a div.</div>
+
+   <select [(ngModel)] = "selectedState" class="form-select w-25 my-1">
+    <option value="">-- Select State --</option>
+    <option *ngFor="let state of states" [value]="state">{{state}}</option>
+</select>
+
+<div>Selected State: {{ selectedState }}</div>
+  </div>
+
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-3: Create an input box, toggle the type of that input box to (text/password). </div>
+  <input [type] = "showPassword ? 'text' : 'password'" placeholder="Enter password" class="my-2">
+  <button class="btn btn-primary mx-2" (click)="togglePasswordType()">
+    {{ showPassword ? 'HIDE' : 'SHOW'}}
+  </button>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-4: Create a counter example with three controls: Increment, Decrement, and Reset.</div>
+
+  <h2>Count: {{ count }}</h2>
+  <button class="btn btn-success mx-2" (click)="increment()">Increment</button>
+    <button class="btn btn-success mx-2" (click)="decrement()">Decrement</button>
+      <button class="btn btn-success mx-2" (click)="reset()">Reset</button>
+
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-5: Create an input box to enter temperature in Celsius, convert temperature from Celsius to Fahrenheit.</div>
+
+  <label>Celsius: </label>
+  <input type="number" [(ngModel)]="celsius" class="mx-2">
+
+  <div class="my-2">Fahrenheit: {{ (celsius * 9/5) + 32 }}</div>
+</div>
+
+<div class="border border-2 rounded-2 p-2 m-2">
+  <div>Assignment-6: Greeting based on time (Good Morning, Good Afternoon, Good Evening).</div>
+
+  <h2>{{ getGreeting() }}</h2>
+</div>
+
