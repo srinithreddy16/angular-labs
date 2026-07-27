@@ -66,3 +66,33 @@
     </tbody>
   </table>
 </div>
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <div>Task List</div>
+  <label>Filter :</label>
+  <select [(ngModel)]="filter">
+    <option>All</option>
+    <option>Completed</option>
+    <option>Pending</option>
+  </select>
+  <br /><br />
+  @for (task of filteredTasks; track task.id) {
+    <div>
+      <input type="checkbox" [(ngModel)]="task.completed" />
+      <span [style.text-decoration]="task.completed ? 'line-through' : 'none'">
+        {{ task.title }}
+      </span>
+    </div>
+  }
+
+<hr />
+
+<h3>{{ completedCount }} out of {{ tasks.length }} tasks are completed.</h3>
+</div>
+
+  
+
+  
+
+  
+ 
