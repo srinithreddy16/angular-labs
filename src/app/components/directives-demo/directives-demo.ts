@@ -20,6 +20,12 @@ export class DirectivesDemo {
     { eId: 105, name: 'deepak', sal: 8000, gender: 'male' },
   ];
 
+  myStyle1 = { color: 'green', backgroundColor: 'red', border: '3px dotted yellow' };
+  myStyle2 = { color: 'red', backgroundColor: 'green', border: '3px dotted yellow' };
+
+  myFunction() {
+    return this.num % 2 == 0 ? this.myStyle1 : this.myStyle2;
+  }
 
    tasks = [
     { id: 1, title: 'Complete Angular assignment', completed: false },
