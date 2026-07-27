@@ -67,6 +67,51 @@
   </table>
 </div>
 
+
+
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <div>Employee Table::</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>SL#</th>
+        <th>Emp id</th>
+        <th>Name</th>
+        <th>gender</th>
+        <th>Salary</th>
+        <th>is First?</th>
+        <th>is Last?</th>
+        <th>is Even?</th>
+        <th>is Odd?</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (emp of employees; track emp.eId; let i = $index, first = $first, last = $last, even = $even, odd = $odd) {
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ emp.eId }}</td>
+          <td>{{ emp.name }}</td>
+          <td>{{ emp.gender }}</td>
+          <td>{{ emp.sal }}</td>
+          <td>{{ first }}</td>
+          <td>{{ last }}</td>
+          <td>{{ even }}</td>
+          <td>{{ odd }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
 <div class="border border-2 rounded-2 m-2 p-2">
   <div>Task List</div>
   <label>Filter :</label>
@@ -89,6 +134,7 @@
 
 <h3>{{ completedCount }} out of {{ tasks.length }} tasks are completed.</h3>
 </div>
+
 
 
 <div class="border border-2 rounded-2 m-2 p-2">
@@ -117,6 +163,11 @@
     }
   </div>
 </div>
+
+
+
+
+
 
   
 
