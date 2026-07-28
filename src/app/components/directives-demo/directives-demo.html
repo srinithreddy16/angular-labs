@@ -196,6 +196,90 @@
 
 
 
+<div class="border border-2 rounded-2 m-2 p-2">
+  <div>Shopping Cart</div>
+  <table class="table table-bordered">
+    <thead>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Qty</th>
+      <th>Subtotal</th>
+    </thead>
+  
+  <tbody>
+     @for(item of cartItems; track item.id){
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.price }}</td>
+        <td>
+          <button (click)="decreaseQty(item)">-</button>
+          <button (click)="increaseQty(item)">+</button>
+        </td>
+      <td>{{ item.price * item.qty }}</td>
+      </tr>
+    }
+  </tbody>
+  </table>
+  <h3>Total : {{ getTotal() }} </h3>
+</div>
+
+
+
+<div class="border border-2 rounded-2 m-2 p-2">
+  <div>Employee Table with Styling</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Salary</th>
+      <th>Status</th>
+      <th>Badge</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of employee; track emp.id){
+        <tr [ngStyle] = "{'background-color': getRowColor(emp.role)}">
+          <td> {{ emp.id }}</td>
+
+          <td [ngClass]="{ 'fw-bold text-primary': emp.role === 'Manager'}">
+            {{ emp.name }}
+          </td>
+
+          <td> {{ emp.role }} </td>
+
+          <td [ngStyle]="{'color': emp.salary > 50000 ? 'green' : 'red'}">
+            {{ emp.salary }}
+          </td>
+
+          <td [ngClass]="{ 'inactive': emp.status === 'Inactive'}">
+            {{ emp.status }}
+          </td>
+
+          <td>
+            <span [ngStyle]="{ 'background-color': getBadgeColor(emp.salary), 'color': 'white', 'padding': '3px 8px', 'border-radius': '5px'}">
+              {{ emp.salary }}
+            </span>
+          </td>
+        </tr>
+      }
+
+
+
+    </tbody>
+  </table>
+</div>
+
+ 
+
+
+
+
+
+
+
+
 
 
 
