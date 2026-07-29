@@ -1,5 +1,33 @@
 <h3 class="text-center">Product List</h3>
+
 <div class="container">
+  <div class="row mb-3">
+    <div class="col-sm-4">
+      <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="searchText" appCharonly appDisableCopyPaste>
+    </div>
+    <div class="col-sm-4">
+      <select class="form-select" [(ngModel)]="sortOrder">
+        <option value="none">Sort By</option>
+        <option value="none">Price Low to High</option>
+        <option value="none">Price High to Low</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-success me-2" (click)="openAlert()">Show Sweet Alert</button>
+      <button class="btn btn-secondary" (click)="openSnackbar()">Show Snackbar</button>
+    </div>
+  </div>
+
+
+
+  
+
+
+
+
+
+
+
   <div class="row">
      @for (product of productArr | paginate: { itemsPerPage: 4, currentPage: p}; track $index) {
       <div class="col-sm-3">
@@ -14,10 +42,12 @@
               {{product.rating.rate}}
               <fa-icon [icon]="faStar" style="color: gold"></fa-icon>
             </p>
-            <a href="#" class="btn btn-primary">Buy Now</a>
+            <button class="btn btn-primary" (click)="openAlert()">Buy Now</button>
           </div>
         </div>
       </div>
+    } @empty{
+      <div class="text-center"> No products found</div>
     }
   </div>
 </div>
