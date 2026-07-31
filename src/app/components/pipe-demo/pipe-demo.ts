@@ -7,10 +7,11 @@ import { CreditcardPipe } from '../../pipes/creditcard-pipe';
 import { AgePipe } from '../../pipes/age-pipe';
 import { SalutationPipe } from '../../pipes/salutation-pipe';
 import { MysortPipe } from '../../pipes/mysort-pipe';
+import { FilterSearchPipe } from '../../pipes/filter-search-pipe';
 
 @Component({
   selector: 'app-pipe-demo',
-  imports: [CommonModule, FormsModule, RemainingPipe, OrdinalPipe, CreditcardPipe, AgePipe, SalutationPipe, MysortPipe],
+  imports: [CommonModule, FormsModule, RemainingPipe, OrdinalPipe, CreditcardPipe, AgePipe, SalutationPipe, MysortPipe, FilterSearchPipe],
   templateUrl: './pipe-demo.html',
   styleUrl: './pipe-demo.css',
 })
@@ -37,6 +38,16 @@ export class PipeDemo {
   ];
 
   arr = [10,50,20,30,40];
+
+  searchText = '';
+
+   employee = [
+    { id: 1, name: 'Rohit Sharma', department: 'Sales', salary: 45000 },
+    { id: 2, name: 'Priya Verma', department: 'HR', salary: 38000 },
+    { id: 3, name: 'Amit Kumar', department: 'IT', salary: 62000 },
+    { id: 4, name: 'Sneha Patil', department: 'Finance', salary: 55000 },
+    { id: 5, name: 'Karan Mehta', department: 'IT', salary: 48000 },
+  ];
 
   
 }

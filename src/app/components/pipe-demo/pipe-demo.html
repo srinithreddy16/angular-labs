@@ -136,7 +136,6 @@ as input and returns the age in years.
    create a custom pipe 'Salutation' that will add 'mr. / miss.' 
    before the employee name.
 -->
-
 <div>
 <div>Employee List</div>
   <table class="table table-bordered">
@@ -164,6 +163,53 @@ as input and returns the age in years.
     </tbody>
   </table>
 </div>
+
+
+
+<!--
+5. declare an array of employee objects. display them in a table. 
+   add a search-box above the table. create a custom-pipe to 
+   filter/search employees data.
+-->
+
+<div>
+<div>Employee List</div>
+
+  <input
+  type="text"
+  class="form-control mb-3"
+  placeholder="Search by name..."
+  [(ngModel)]="searchText"
+/>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+        @for(emp of employee | filterSearch:searchText; track emp.id){
+            <tr>
+                <td> {{ emp.id }}</td>
+                <td> {{ emp.name }}</td>
+                <td> {{ emp.department }}</td>
+                <td> {{ emp.salary | currency }}</td>
+                
+            </tr>
+        }
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
 
 
 <!--
