@@ -166,5 +166,21 @@ as input and returns the age in years.
 </div>
 
 
+<!--
+Pure and Impure pipe
+-->
+
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h4>Pure & Impure Pipe</h4>
+  <div>Array Items::</div>
+  @for (item of arr | mysort; track $index) {
+    <b>{{item}} &nbsp;</b>
+  }
+  <div>
+    <input type="number" #newNum />
+    <button class="btn btn-primary mx-2" (click)="arr.push(+newNum.value)">Add</button>
+    <!-- When a new item is added to array, pure pipe doesn't recognize that. So we make pipe impure so that the pipe gets triggered every time we make changes-->
+  </div>
+</div>
 
   
