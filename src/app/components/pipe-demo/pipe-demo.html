@@ -89,3 +89,82 @@
   <div>Msg: {{msg}}</div>
   <div>Remaining Chars: {{msg | remaining}}</div>
 </div>
+
+<!--chain multiple pipes together:-->
+<!--<p>{{ name | uppercase | slice:0:5 }}</p> -->
+
+
+<!--
+Create a custom pipe(ordinal) which takes a number as input and
+ returns in ordinal format
+   input : 21,22,23,24  
+   output : 21st, 22nd , 23rd, 24th
+-->
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h4>Custom Pipe(Number -> Ordinal)</h4>
+  <textarea [(ngModel)]="num"></textarea>
+  <div>output: {{num| ordinal}}</div>
+</div>
+
+
+<!--
+2. create a custom pipe(creditcard) which takes a creditcard as input and returns masked creditcard
+   input :  1111222233334444  
+   output : 1111-2222-3333-4444 
+-->
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h4>Custom Pipe(Creditcard -> Masked Creditcard)</h4>
+  <textarea [(ngModel)]="cardNum"></textarea>
+  <div>output: {{cardNum| creditcard}}</div>
+</div>
+
+
+<!--
+create a custom pipe called 'age' which takes a date 
+as input and returns the age in years.
+   input : 04-06-2020
+   output : 5 years old
+-->
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h4>Custom Pipe(Age)</h4>
+  <textarea [(ngModel)]="dob"></textarea>
+  <div>output: {{dob | age}}</div>
+</div>
+
+<!--
+4. declare an array of employee objects. display them in a table.
+   create a custom pipe 'Salutation' that will add 'mr. / miss.' 
+   before the employee name.
+-->
+
+<div>
+<div>Employee List</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Salary</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees; track emp.id){
+            <tr>
+                <td> {{ emp.id }}</td>
+                <td> {{ emp.name | salutation:emp.gender}}</td>
+                <td> {{ emp.gender }}</td>
+                <td> {{ emp.department }}</td>
+                <td> {{ emp.salary | currency}}</td>
+                
+            </tr>
+        }
+    </tbody>
+  </table>
+</div>
+
+
+
+  
