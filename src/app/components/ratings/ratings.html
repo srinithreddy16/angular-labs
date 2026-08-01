@@ -1,0 +1,18 @@
+<div class="border border-3 rounded-3 p-3 m-3">
+    <h4>Star Ratings</h4>
+
+    <input
+        type="number"
+        class="form-control mb-3"     
+        min="1"
+        max="5"
+        placeholder="Rate..."
+        [(ngModel)]="rating"
+    />
+
+    <div>
+        @for (star of stars; track star){
+            <span class="star" [class.gold]="star <=rating">★</span>
+        }
+    </div>
+</div>
