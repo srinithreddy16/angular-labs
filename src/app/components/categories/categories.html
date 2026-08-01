@@ -1,60 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Fashion</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Mobile</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Electronics</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Fashion</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Fashion</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Fashion</div>
-    </div>
-    <div class="col text-center">
-      <img
-        src="https://static-assets-web.flixcart.com/apex-static/images/svgs/L1Nav/fashion.svg"
-        alt=""
-        class="src"
-      />
-      <div>Fashion</div>
-    </div>
+        @for (categoryObj of allCategories; track $index) {
+      <div class="col">
+        <app-category [categoryObj]="categoryObj"></app-category>
+      </div>
+    }
   </div>
 </div>
