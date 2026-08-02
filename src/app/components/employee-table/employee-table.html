@@ -1,0 +1,25 @@
+<div>
+  <div>Employee List from Parent Component:</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees; track emp.id){
+            <tr>
+                <td> {{ emp.id }}</td>
+                <td> {{ emp.name }}</td>
+                <td> {{ emp.department }}</td>
+                <td> {{ emp.salary }}</td>
+                <td><button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp)"><fa-icon [icon]="faTrash"></fa-icon></button></td>
+            </tr>
+        }
+    </tbody>
+  </table>
+</div>

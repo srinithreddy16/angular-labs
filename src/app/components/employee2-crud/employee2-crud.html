@@ -1,0 +1,32 @@
+<div>
+<h3>Employee2 CRUD</h3>
+  <div>Employee List From My Own Component:</div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for(emp of employees; track emp.id){
+            <tr>
+                <td> {{ emp.id }}</td>
+                <td> {{ emp.name }}</td>
+                <td> {{ emp.department }}</td>
+                <td> {{ emp.salary }}</td>
+            </tr>
+        }
+    </tbody>
+  </table>
+</div>
+
+<div class="container">
+    <!-- Child form: emits addEvent up to parent -->
+    <app-employee-add (addEvent)="addEmployee($event)"></app-employee-add>
+
+    <!-- [employees]: parent -> child | (deleteEvent): child -> parent -->
+    <app-employee-table [employees]="employees" (deleteEvent)="deleteEmployee($event)"></app-employee-table>
+</div>

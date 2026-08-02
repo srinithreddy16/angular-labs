@@ -1,0 +1,7 @@
+<div>
+    <h4>Add New Employee</h4>
+    <input type="text" class="form-control mb-2" placeholder="Name" [(ngModel)]="newEmployee.name">
+     <input type="text" class="form-control mb-2" placeholder="Department" [(ngModel)]="newEmployee.department">
+      <input type="text" class="form-control mb-2" placeholder="Salary" [(ngModel)]="newEmployee.salary">
+      <button class="btn btn-primary" (click)="submitEmployee()">Add Employee</button>
+</div>
