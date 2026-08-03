@@ -29,6 +29,10 @@ export class ParentDemo implements OnChanges, OnInit, DoCheck{
     this.parentCourseName = receiveDataFromChild;
   }
 
+  f1(){
+    console.log('I am f1...')
+  }
+
 
   constructor(private httpClient: HttpClient) {
     // Dependency Injection
