@@ -20,8 +20,15 @@
 
    <app-ratings> </app-ratings>
 
-   <app-parent-demo></app-parent-demo>
+   <app-parent-demo></app-parent-demo> 
 
    <app-employee2-crud></app-employee2-crud>
+
+   @if (flag) {
+     <app-login></app-login>
+   } @else {
+     <app-logout></app-logout>
+   }
+   <button (click)="flag=!flag">Toggle</button>
 </div>
 

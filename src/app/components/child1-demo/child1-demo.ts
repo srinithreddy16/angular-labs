@@ -30,9 +30,9 @@ export class Child1Demo {
   // ngAfterContentChecked() {
   //   console.log('child ngAfterContentChecked')
   // }
-  // ngAfterViewInit() {
-  //   console.log('child ngAfterViewInit');
-  // }
+  //ngAfterViewInit() {
+  //console.log('child ngAfterViewInit');
+  //}
   // ngAfterViewChecked() {
   //   console.log('child ngAfterViewChecked');
   // }

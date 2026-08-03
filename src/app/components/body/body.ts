@@ -5,11 +5,15 @@ import { Ratings } from '../ratings/ratings';
 import { ParentDemo } from '../parent-demo/parent-demo';
 import { Categories } from "../categories/categories";
 import { Employee2CRUD } from '../employee2-crud/employee2-crud';
+import { Login } from '../login/login';
+import { Logout } from '../logout/logout';
 
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
-export class Body {}
+export class Body {
+  flag = true;
+}

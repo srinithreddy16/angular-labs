@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Child1Demo } from '../child1-demo/child1-demo';
 import { Child2Demo } from '../child2-demo/child2-demo';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +11,9 @@ import { Cart } from '../cart/cart';
   templateUrl: './parent-demo.html',
   styleUrl: './parent-demo.css',
 })
-export class ParentDemo {
+export class ParentDemo implements OnChanges, OnInit, DoCheck{
+  @ViewChild('myInputBox') myInputBox: any;  // Links to #myInputBox in the html
+
   a = 10;
   //a: number;
   parentCourseName = '';
@@ -26,13 +28,12 @@ export class ParentDemo {
   receiveDataFromChild(receiveDataFromChild: any) {
     this.parentCourseName = receiveDataFromChild;
   }
-  f1() {
-    console.log('I am f1...');
-  }
+
 
   constructor(private httpClient: HttpClient) {
     // Dependency Injection
     console.log('Parent constructor');
+    console.log(this.myInputBox);
     this.a = 10; // initialize class variables
     // let obj = new HttpClient();
   }
@@ -45,18 +46,22 @@ export class ParentDemo {
   ngDoCheck() {
     console.log('Parent ngDoCheck');
   }
-  // ngAfterContentInit() {
-  //   console.log('Parent ngAfterContentInit');
-  // }
-  // ngAfterContentChecked() {
-  //   console.log('Parent ngAfterContentChecked')
-  // }
-  // ngAfterViewInit() {
-  //   console.log('Parent ngAfterViewInit');
-  // }
-  // ngAfterViewChecked() {
-  //   console.log('Parent ngAfterViewChecked');
-  // }
+  ngAfterContentInit() {
+  console.log('Parent ngAfterContentInit');
+  }
+  ngAfterContentChecked() {
+  console.log('Parent ngAfterContentChecked')
+  }
+  ngAfterViewInit() {
+    console.log('Parent ng After View Init');
+    console.log(this.myInputBox);
+    this.myInputBox.nativeElement.style.backgroundColor = 'lightgreen';
+    this.myInputBox.nativeElement.focus();
+    
+  }
+  ngAfterViewChecked() {
+  console.log('Parent ngAfterViewChecked');
+  }
   // ngOnDestroy() {
   //   console.log('Parent ngOnDestory');
   // }
