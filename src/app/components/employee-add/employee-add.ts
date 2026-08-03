@@ -16,8 +16,8 @@ export class EmployeeAdd {
   newEmployee: any = {name: '', department: '', salary: null};
 
   submitEmployee(){
-    this.addEvent.emit({...this.newEmployee});
-    this.newEmployee= {name: '', department: '', salary: null};
+    this.addEvent.emit({...this.newEmployee});  // make a COPY, give parent the copy
+    this.newEmployee= {name: '', department: '', salary: null}; //emptying the newEmployee box lets think
   }
 
 

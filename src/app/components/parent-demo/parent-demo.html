@@ -2,9 +2,25 @@
   <div class="row text-center">
     <div>This is Parent Component</div>
     <div>My own data a is {{ a }}</div>
+
+    <!--
+    <div><input type="number" [(ngModel)]="a"></div>
+    <button (click)="f1()" class="btn btn-primary col-sm-1 offset-4 mx-1">Click me</button>
+    <button (click)="addItemToCart()" class="btn btn-primary col-sm-1">Add to Cart</button>
+    -->
+
     <div>My child2's data b is {{ child2.b }}</div>
     <div>My child2's data parentCourseName is {{ parentCourseName }}</div>
   </div>
+
+  
+   <!--
+   <div class="row">
+    <app-cart [cartItems]="cartArr"></app-cart>
+  </div>
+  -->
+   
+
   <div class="row">
     <div class="col-sm-6">
       <div class="border border-2 p-2 text-center">

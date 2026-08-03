@@ -1,0 +1,5 @@
+<p>cart works! {{cartItems.length}}---{{cartLength}}</p>
+
+@for (cartItem of cartItems; track $index) {
+  <div> {{cartItem.name}} --- {{cartItem.quantity}} </div>
+}

@@ -24,9 +24,15 @@
 </div>
 
 <div class="container">
-    <!-- Child form: emits addEvent up to parent -->
-    <app-employee-add (addEvent)="addEmployee($event)"></app-employee-add>
-
-    <!-- [employees]: parent -> child | (deleteEvent): child -> parent -->
-    <app-employee-table [employees]="employees" (deleteEvent)="deleteEmployee($event)"></app-employee-table>
+    <app-employee-table [employees]="employees" (deleteEvent)="deleteEmployee($event)"></app-employee-table> <!--  passing the parent’s employees to the child.--> <!--listening for delete event from child --> <!-- [employees]: parent → child | (deleteEvent): child → parent -->
 </div>
+
+<div>
+<app-employee-add (addEvent)="addEmployee($event)"></app-employee-add>
+</div>
+
+
+
+<!--
+-->
+
