@@ -8,10 +8,11 @@ import { Employee2CRUD } from '../employee2-crud/employee2-crud';
 import { Login } from '../login/login';
 import { Logout } from '../logout/logout';
 import { Employee3 } from '../employee3/employee3';
+import { CommentList } from '../comment-list/comment-list';
 
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

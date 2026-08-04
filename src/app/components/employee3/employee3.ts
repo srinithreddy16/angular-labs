@@ -28,3 +28,10 @@ export class Employee3 {
     }
   }
 }
+
+
+
+/*
+ngOnInit = “run this once when the component starts” → fill the table before the user touches the dropdown.
+
+*/
