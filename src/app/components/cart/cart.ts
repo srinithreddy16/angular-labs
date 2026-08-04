@@ -18,7 +18,7 @@ export class Cart {
     if (this.cartLength !== this.cartItems.length) {
       console.log('There is a change in cart Item', this.cartLength);
       this.cartLength = this.cartItems.length;
-      this.cdr.markForCheck();
+      this.cdr.markForCheck(); //markForCheck means explicitly we are telling if there is any change in my component please refresh my UI.
     }
   }
 }

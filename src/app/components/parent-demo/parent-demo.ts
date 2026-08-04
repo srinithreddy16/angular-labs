@@ -70,3 +70,25 @@ export class ParentDemo implements OnChanges, OnInit, DoCheck{
   //   console.log('Parent ngOnDestory');
   // }
 }
+
+
+
+/*
+Parent ngOnChanges almost never runs usefully here — ParentDemo has 
+no inputs from a grandparent. No @Input → nothing for ngOnChanges to react to.
+*/
+
+/*
+ngDoCheck() — on every change detection cycle
+It runs much more often — whenever Angular checks the component (clicks, typing, timers, etc.), even if no @Input changed.
+
+Examples in your app:
+
+typing in the parent input
+clicking Toggle on login/logout
+any UI event that triggers change detection
+ngDoCheck
+Called on every single change detection run, regardless of whether any input actually changed.
+This means it fires very frequently — on any event, timer, HTTP response, etc. that triggers Angular's change detection, even in completely unrelated parts of the app (if this component is in the render tree).
+It exists so you can implement custom change detection logic for cases ngOnChanges can't catch — e.g., detecting a mutation inside an array/object that kept the same reference.
+*/

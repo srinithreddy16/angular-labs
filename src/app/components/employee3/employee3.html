@@ -1,0 +1,29 @@
+<div>
+  <h3>Employee List</h3>
+
+  <select [(ngModel)]="selectedFilter" (ngModelChange)="loadEmployees()">
+    <option value="allEmployees">All Employees</option>
+    <option value="maleEmployees">Male Employees</option>
+    <option value="femaleEmployees">Female Employees</option>
+  </select>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Department</th>
+      <th>Salary</th>
+    </tr>
+
+    @for (emp of employees; track emp.id) {
+      <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.gender }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary }}</td>
+      </tr>
+    }
+  </table>
+</div>

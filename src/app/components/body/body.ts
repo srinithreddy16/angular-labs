@@ -7,10 +7,11 @@ import { Categories } from "../categories/categories";
 import { Employee2CRUD } from '../employee2-crud/employee2-crud';
 import { Login } from '../login/login';
 import { Logout } from '../logout/logout';
+import { Employee3 } from '../employee3/employee3';
 
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
