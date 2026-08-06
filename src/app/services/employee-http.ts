@@ -13,7 +13,7 @@ export class EmployeeHttp {
     return this.httpClient.get(this.employee_api);
   }
 
-  addEmployee(newEmployee: any){
+  addEmployee(newEmployee: any){  
     return this.httpClient.post(this.employee_api, newEmployee);
   }
 

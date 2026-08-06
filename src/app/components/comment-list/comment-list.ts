@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Comment } from '../../models/comment';
 
 @Component({
   selector: 'app-comment-list',

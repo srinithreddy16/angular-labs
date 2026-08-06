@@ -11,9 +11,10 @@ import { Employee3 } from '../employee3/employee3';
 import { CommentList } from '../comment-list/comment-list';
 import { Employee4 } from '../employee4/employee4';
 import { ProductListHttp } from '../product-list-http/product-list-http';
+import { EmployeeListHttp2 } from '../employee-list-http2/employee-list-http2';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
