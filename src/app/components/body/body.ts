@@ -9,10 +9,11 @@ import { Login } from '../login/login';
 import { Logout } from '../logout/logout';
 import { Employee3 } from '../employee3/employee3';
 import { CommentList } from '../comment-list/comment-list';
-
+import { Employee4 } from '../employee4/employee4';
+import { ProductListHttp } from '../product-list-http/product-list-http';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

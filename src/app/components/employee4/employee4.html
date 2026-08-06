@@ -1,0 +1,40 @@
+<h3 class="text-center">Employee List Using HTTP</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Salary</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (emp of employeeList | async; track emp.id) {
+      <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary }}</td>
+        <td>
+          <button type="button" (click)="editEmployee(emp)">Edit</button>
+          <button type="button" (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<h4>{{ editId ? 'Update Employee' : 'Add Employee' }}</h4>
+
+<input type="text" placeholder="Name" [(ngModel)]="newEmployee.name">
+<input type="text" placeholder="Email" [(ngModel)]="newEmployee.email">
+<input type="text" placeholder="Department" [(ngModel)]="newEmployee.department">
+<input type="number" placeholder="Salary" [(ngModel)]="newEmployee.salary">
+
+<button type="button" (click)="addEmployee()">
+  {{ editId ? 'Update' : 'Add' }}
+</button>

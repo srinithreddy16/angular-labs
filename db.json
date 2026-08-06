@@ -1,0 +1,40 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Rohit Sharma",
+      "email": "rohit.sharma@company.com",
+      "department": "Sales",
+      "salary": 45000
+    },
+    {
+      "id": "2",
+      "name": "Priya Verma",
+      "email": "priya.verma@company.com",
+      "department": "HR",
+      "salary": 65000
+    },
+    {
+      "id": "3",
+      "name": "Amit Kumar",
+      "email": "amit.kumar@company.com",
+      "department": "IT",
+      "salary": 72000
+    },
+    {
+      "id": "4",
+      "name": "Sneha Patil",
+      "email": "sneha.patil@company.com",
+      "department": "Finance",
+      "salary": 52000
+    },
+    {
+      "id": "5",
+      "name": "Karan Mehta",
+      "email": "karan.mehta@company.com",
+      "department": "IT",
+      "salary": 68000
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

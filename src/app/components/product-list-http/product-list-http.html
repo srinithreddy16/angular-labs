@@ -1,0 +1,29 @@
+<h3 class="text-center">Product List</h3>
+
+<button class="btn btn-primary" (click)="fetchData()">Fetch data</button>
+@if(isLoading()){
+  <img src="https://media1.tenor.com/m/Pq1cZiuhlEEAAAAC/rajinikanth.gif" alt="">
+}@else {
+  <div class="container">
+    <div class="row mt-2">
+      @for (product of productList(); track $index) {
+      <div class="col-sm-3">
+        <div class="card text-center mb-4">
+          <img src="{{product.image}}" class="card-img-top" alt="..." height="200">
+          <div class="card-body">
+            <h5 class="card-title">{{product.category}}</h5>
+            <p class="card-text text-truncate">{{product.title}}</p>
+            <p class="card-text text-truncate">{{product.description}}</p>
+            <p class="card-text">
+            </p>
+            <p class="card-text">
+              {{product.rating.rate}}
+            </p>
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+}
