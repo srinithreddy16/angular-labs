@@ -6,6 +6,7 @@ import { inject, Injectable } from '@angular/core';
 })
 export class ProductService {
   product_api = 'https://fakestoreapi.com/products';
+  //product_api = 'https://fakestoreapi.com/roducts';
   httpClient = inject(HttpClient);
 
   getAllProducts() {
