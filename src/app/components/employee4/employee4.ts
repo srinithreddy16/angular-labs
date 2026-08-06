@@ -21,26 +21,33 @@ export class Employee4 {
     this.employeeList = this.employeeService.getAllEmployees();
   }
 
-  editEmployee(emp: any) {
-    this.editId = emp.id;
-    this.newEmployee = { ...emp };
-  }
+  // editEmployee(emp: any) {
+  //   this.editId = emp.id;
+  //   this.newEmployee = { ...emp };
+  // }
 
-  addEmployee() {
-    if (this.editId) {
-      // UPDATE
-      this.employeeService.updateEmployee(this.editId, this.newEmployee).subscribe(() => {
-        this.employeeList = this.employeeService.getAllEmployees();
+  // addEmployee() {
+  //   if (this.editId) {
+  //     // UPDATE
+  //     this.employeeService.updateEmployee(this.editId, this.newEmployee).subscribe(() => {
+  //       this.employeeList = this.employeeService.getAllEmployees();
+  //       this.newEmployee = { name: '', email: '', department: '', salary: null };
+  //       this.editId = null;
+  //     });
+  //   } else {
+  //     // ADD
+  //     this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
+  //       this.employeeList = this.employeeService.getAllEmployees();
+  //       this.newEmployee = { name: '', email: '', department: '', salary: null };
+  //     });
+  //   }
+  // }
+  
+  addEmployee(){
+    this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
+       this.employeeList = this.employeeService.getAllEmployees();
         this.newEmployee = { name: '', email: '', department: '', salary: null };
-        this.editId = null;
-      });
-    } else {
-      // ADD
-      this.employeeService.addEmployee(this.newEmployee).subscribe(() => {
-        this.employeeList = this.employeeService.getAllEmployees();
-        this.newEmployee = { name: '', email: '', department: '', salary: null };
-      });
-    }
+       });
   }
 
   deleteEmployee(id: any) {

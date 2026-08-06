@@ -13,11 +13,12 @@ export class CommentList {
   comment_api = 'https://jsonplaceholder.typicode.com/comments';
 
   httpClient = inject(HttpClient);
-  commentList!: Observable<any>;
+  commentList!: Observable<Comment[]>;
+  // Increases readability and maintainability
 
   ngOnInit() {
     // httpClient.get() returns Observable
-    this.commentList = this.httpClient.get(this.comment_api);
+    this.commentList = this.httpClient.get<Comment[]>(this.comment_api);
     console.log(this.commentList);
   }
 }

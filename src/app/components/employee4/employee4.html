@@ -20,7 +20,7 @@
         <td>{{ emp.department }}</td>
         <td>{{ emp.salary }}</td>
         <td>
-          <button type="button" (click)="editEmployee(emp)">Edit</button>
+          <!--<button type="button" (click)="editEmployee(emp)">Edit</button>-->
           <button type="button" (click)="deleteEmployee(emp.id)">Delete</button>
         </td>
       </tr>
@@ -28,13 +28,17 @@
   </tbody>
 </table>
 
-<h4>{{ editId ? 'Update Employee' : 'Add Employee' }}</h4>
+<!-- <h4>{{ editId ? 'Update Employee' : 'Add Employee' }}</h4> -->
 
 <input type="text" placeholder="Name" [(ngModel)]="newEmployee.name">
 <input type="text" placeholder="Email" [(ngModel)]="newEmployee.email">
 <input type="text" placeholder="Department" [(ngModel)]="newEmployee.department">
 <input type="number" placeholder="Salary" [(ngModel)]="newEmployee.salary">
 
+
+<button type="button" (click)="addEmployee()">Add</button>
+<!--
 <button type="button" (click)="addEmployee()">
   {{ editId ? 'Update' : 'Add' }}
 </button>
+-->
