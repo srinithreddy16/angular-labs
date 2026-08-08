@@ -1,0 +1,43 @@
+<div class="border border-2 rounded-2 p-2">
+    <h1>Search Something</h1>
+    <form [formGroup]="searchForm">
+        <input formControlName="searchField" />
+    </form>
+    <table class="table bordered">
+        <tbody>
+            @for(user of searchResult$ | async ; track $index;){
+                <tr>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.gender}}</td>
+                    <td>{{user.height}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+<h1>Search Something</h1>
+  <form [formGroup]="searchForm">
+    <input formControlName="searchField" />
+  </form>
+  <table class="table bordered">
+    <tbody>
+      @for(user of searchResult$ | async ; track $index;){
+      <tr>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.gender}}</td>
+        <td>{{user.height}}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h1>Login Screen</h1>
+  <button class="btn btn-success" #loginBtn>Login</button>
+</div>
