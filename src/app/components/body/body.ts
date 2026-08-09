@@ -17,9 +17,10 @@ import { ObservabaleDemo2 } from '../observabale-demo2/observabale-demo2';
 import { ObservableDemo3 } from '../observable-demo3/observable-demo3';
 import { ObservableDemo4 } from '../observable-demo4/observable-demo4';
 import { SubjectDemo1 } from '../subject-demo1/subject-demo1';
+import { SignalDemo1 } from '../signal-demo1/signal-demo1';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
