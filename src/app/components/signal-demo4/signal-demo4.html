@@ -1,0 +1,17 @@
+<h3 class="text-center">Let's Learn linkedSignal</h3>
+<div class="border border-3 rounded-3 m-3 p-3 row">
+  <select [value]="country()" (change)="changeCountry($event)" class="form-control col">
+    <option>India</option>
+    <option>USA</option>
+    <option>Canada</option>
+  </select>
+
+  <select [value]="selectedState()" (change)="changeState($event)" class="form-control col">
+    @for (state of states(); track $index) {
+      <option>{{state}}</option>
+    }
+  </select>
+
+  <div>Selected Coutry: {{country()}}</div>
+  <div>Selected State: {{selectedState()}}</div>
+</div>
