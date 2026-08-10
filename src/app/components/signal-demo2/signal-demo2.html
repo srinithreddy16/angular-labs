@@ -1,0 +1,70 @@
+<div class="border border-3 rounded-3 p-3 m-3">
+  <h3 class="text-center">ToDo List using Signals</h3>
+
+  <div class="d-flex mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter new todo..."
+      [value]="newTodoTitle()"
+      (input)="updateNewTodoTitle($event)"
+    />
+    <button class="btn btn-primary ms-2" (click)="addTodo()">Add ToDo</button>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Toggle</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (todo of todos(); track todo.id){
+            <tr>
+                <td [class.text-decoration-line-through]="todo.isCompleted">{{ todo.title }}</td>
+          <td>{{ todo.isCompleted ? 'Completed' : 'Pending' }}</td>
+          <td>
+            <button class="btn btn-sm btn-secondary" (click)="toggleTodo(todo.id)">
+              Toggle
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4">No todos to show</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-6">
+        <h5>Completed ToDos ({{ completedToDos().length }})</h5>
+        @for (todo of completedToDos(); track todo.id) {
+            <div>✅ {{ todo.title }} </div>
+        } @empty {
+            <div>No completed todos</div>
+        }
+    </div>
+    <div class="col-sm-6">
+        <h5>Remaining ToDos ({{ remainingToDos().length }})</h5>
+        @for (todo of remainingToDos(); track todo.id) {
+            <div>⬜ {{ todo.title }}</div>
+        } @empty {
+            <div>No remaining todos</div>
+        }
+    </div>
+
+  </div>
+                
+</div>
