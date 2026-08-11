@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-model-form',
@@ -13,7 +13,7 @@ export class ModelForm {
 
   constructor() {
     this.registerForm = new FormGroup({
-      firstName: new FormControl('Virat'),
+      firstName: new FormControl('Virat', [Validators.required, Validators.minLength(5)]),
       lastName: new FormControl('Kohli'),
       email: new FormControl(),
       address: new FormGroup({

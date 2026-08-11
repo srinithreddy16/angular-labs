@@ -2,7 +2,14 @@
 
 <div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
   <form [formGroup]="registerForm">
-    <p>FirstName: <input formControlName="firstName"> </p>
+    <p>FirstName: <input formControlName="firstName">
+         @if(registerForm.controls['firstName'].hasError('required')){
+        <span class="text-danger">FirstName is Required</span>
+      }
+      @if(registerForm.controls['firstName'].hasError('minlength')){
+        <span class="text-danger">Minimum 5 chars Required</span>
+      }
+    </p>
     <p>LastName: <input formControlName="lastName"> </p>
     <p>Email: <input formControlName="email"> </p>
 
