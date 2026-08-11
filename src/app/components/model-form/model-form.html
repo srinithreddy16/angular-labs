@@ -1,0 +1,20 @@
+<h3 class="text-center">Model Driven Form / Reactive Form</h3>
+
+<div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
+  <form [formGroup]="registerForm">
+    <p>FirstName: <input formControlName="firstName"> </p>
+    <p>LastName: <input formControlName="lastName"> </p>
+    <p>Email: <input formControlName="email"> </p>
+
+    <div formGroupName="address">
+      <p>Street: <input formControlName="street"> </p>
+      <p>City: <input formControlName="city"> </p>
+      <p>Pincode: <input formControlName="pincode"> </p>
+    </div>
+
+    <button type="reset" class="btn btn-danger mx-2">Reset</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <hr/>
+  <pre>{{registerForm.value | json}}</pre>
+</div>
