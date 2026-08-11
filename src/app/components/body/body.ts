@@ -22,10 +22,11 @@ import { SignalDemo2 } from '../signal-demo2/signal-demo2';
 import { SignalDemo3 } from '../signal-demo3/signal-demo3';
 import { SignalDemo4 } from '../signal-demo4/signal-demo4';
 import { SignalDemo5 } from '../signal-demo5/signal-demo5';
-
+import { FormDemo1 } from '../form-demo1/form-demo1';
+import { TemplateForm } from '../template-form/template-form';
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5, FormDemo1, TemplateForm],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
