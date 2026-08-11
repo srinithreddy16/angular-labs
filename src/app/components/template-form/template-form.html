@@ -2,20 +2,30 @@
 
 <div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
   <form #myForm="ngForm" (submit)="submitMyForm(myForm.value)">
-    <p>FirstName: <input name="firstName" #firstName="ngModel" ngModel /></p>
-    <p>lastName: <input name="lastName" #lastName="ngModel" ngModel /></p>
-    <p>email: <input name="email" #email="ngModel" ngModel /></p>
+    <p>
+      FirstName: <input name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" required minlength="5">
+      @if(firstName.hasError('required')){
+        <span class="text-danger">FirstName is Required</span>
+      }
+      @if(firstName.hasError('minlength')){
+        <span class="text-danger">Minimum 5 chars Required</span>
+      }
+    </p>
+
+    <p>lastName: <input name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" /></p>
+    <p>email: <input name="email" #email="ngModel" [(ngModel)]="user.email" /></p>
 
     <div ngModelGroup="address">
-      <p>street: <input name="street" ngModel /></p>
-      <p>city: <input name="city" ngModel /></p>
-      <p>pincode: <input name="pincode" ngModel /></p>
+      <p>street: <input name="street" [(ngModel)]="user.address.street" /></p>
+      <p>city: <input name="city" [(ngModel)]="user.address.city" /></p>
+      <p>pincode: <input name="pincode" [(ngModel)]="user.address.pincode" /></p>
     </div>
 
     <button type="reset" class="btn btn-danger mx-2">Reset</button>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-  <hr/>
+
+  <hr />
   <pre>FormData:: {{myForm.value | json}}</pre>
   <pre>FirstName:: {{firstName.value | json}}</pre>
 </div>

@@ -9,6 +9,17 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './template-form.css',
 })
 export class TemplateForm {
+
+  user = {
+    firstName: 'Virat',
+    lastName: 'Kohli',
+    email: '',
+    address: {
+      street: '',
+      city: '',
+      pincode: '',
+    },
+  };
   submitMyForm(formData: NgForm) {
     console.log('Form Submitted::', formData);
   }
