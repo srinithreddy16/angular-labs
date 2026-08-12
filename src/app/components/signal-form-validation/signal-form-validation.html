@@ -1,0 +1,22 @@
+<h3 class="text-center">Signal Form Validation</h3>
+<div class="col-sm-6 offset-3 border border-3 rounded-3 p-3">
+  <form (submit)="submit(); $event.preventDefault()">
+    <p>Email: <input type="email" [formField]="loginForm.email" /></p>
+    <p>Password: <input type="password" [formField]="loginForm.password" /></p>
+    <p>Confirm Password:
+      <input type="password" [formField]="loginForm.confirmPassword" />
+    </p>
+    @if (loginForm.confirmPassword().invalid()) {
+      @for (error of loginForm.confirmPassword().errors(); track error) {
+        <div>{{ error.message }}</div>
+      }
+    }
+    <button type="submit">Submit</button>
+    <button type="button" (click)="reset()">Reset</button>
+  </form>
+  <hr />
+  <h5>Form Data</h5>
+  <div>Email: {{ loginForm.email().value() }}</div>
+  <div>Password: {{ loginForm.password().value() }}</div>
+  <div>Confirm Password: {{ loginForm.confirmPassword().value() }}</div>
+</div>
