@@ -1,0 +1,106 @@
+<div class="col-sm-6 offset-3 border border-3 rounded-3 p-3 m-3">
+  <h3 class="text-center">Registration Form</h3>
+
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+    <!-- Text input: First Name -->
+    <div class="mb-3">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName">
+      @if (registerForm.controls['firstName'].touched) {
+        @if (registerForm.controls['firstName'].hasError('required')) {
+          <span class="text-danger">First Name is required</span>
+        }
+        @if (registerForm.controls['firstName'].hasError('minlength')) {
+          <span class="text-danger">Minimum 3 characters required</span>
+        }
+      }
+    </div>
+
+    <!-- Text input: Last Name -->
+    <div class="mb-3">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName">
+      @if (registerForm.controls['lastName'].touched && registerForm.controls['lastName'].hasError('required')) {
+        <span class="text-danger">Last Name is required</span>
+      }
+    </div>
+
+    <!-- Text input: Email -->
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" class="form-control" formControlName="email">
+      @if (registerForm.controls['email'].touched) {
+        @if (registerForm.controls['email'].hasError('required')) {
+          <span class="text-danger">Email is required</span>
+        }
+        @if (registerForm.controls['email'].hasError('email')) {
+          <span class="text-danger">Enter a valid email</span>
+        }
+      }
+    </div>
+
+    <!-- Radio buttons: Gender -->
+    <div class="mb-3">
+      <label class="d-block">Gender</label>
+      <label class="me-3">
+        <input type="radio" formControlName="gender" value="male"> Male
+      </label>
+      <label class="me-3">
+        <input type="radio" formControlName="gender" value="female"> Female
+      </label>
+      <label>
+        <input type="radio" formControlName="gender" value="other"> Other
+      </label>
+      @if (registerForm.controls['gender'].touched && registerForm.controls['gender'].hasError('required')) {
+        <div class="text-danger">Please select a gender</div>
+      }
+    </div>
+
+    <!-- Dropdown: Country -->
+    <div class="mb-3">
+      <label>Country</label>
+      <select class="form-control" formControlName="country">
+        <option value="">-- Select Country --</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+      </select>
+      @if (registerForm.controls['country'].touched && registerForm.controls['country'].hasError('required')) {
+        <div class="text-danger">Please select a country</div>
+      }
+    </div>
+
+    <!-- Textarea: Address -->
+    <div class="mb-3">
+      <label>Address</label>
+      <textarea class="form-control" formControlName="address" rows="3"></textarea>
+      @if (registerForm.controls['address'].touched) {
+        @if (registerForm.controls['address'].hasError('required')) {
+          <span class="text-danger">Address is required</span>
+        }
+        @if (registerForm.controls['address'].hasError('maxlength')) {
+          <span class="text-danger">Address cannot exceed 200 characters</span>
+        }
+      }
+    </div>
+
+    <!-- Checkbox: Terms -->
+    <div class="mb-3">
+      <label>
+        <input type="checkbox" formControlName="terms"> I agree to the terms and conditions
+      </label>
+      @if (registerForm.controls['terms'].touched && registerForm.controls['terms'].hasError('required')) {
+        <div class="text-danger">You must accept the terms to continue</div>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="reset" class="btn btn-danger mx-2">Reset</button>
+
+  </form>
+
+  <hr>
+  <pre>Form Value:: {{ registerForm.value | json }}</pre>
+  <pre>Form Valid:: {{ registerForm.valid }}</pre>
+</div>
