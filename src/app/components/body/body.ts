@@ -29,11 +29,12 @@ import { DynamicForm } from '../dynamic-form/dynamic-form';
 import { SignalForm } from '../signal-form/signal-form';
 import { SignalFormValidation } from '../signal-form-validation/signal-form-validation';
 import { RegistrationForm } from '../registration-form/registration-form';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5, FormDemo1, TemplateForm, ModelForm, DynamicForm, SignalForm, SignalFormValidation, RegistrationForm],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5, FormDemo1, TemplateForm, ModelForm, DynamicForm, SignalForm, SignalFormValidation, RegistrationForm, RouterOutlet],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })

@@ -1,0 +1,6 @@
+.nav-link.active,
+.nav-item.active .nav-link {
+  color: orange !important;
+  font-weight: bold;
+  border-bottom: 2px solid orange;
+}

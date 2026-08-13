@@ -1,30 +1,40 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+<nav class="navbar navbar-expand bg-body-tertiary bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse show" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+          <a class="nav-link" routerLink="home" routerLinkActive="active">
+            <fa-icon [icon]="faHouse"></fa-icon> Home
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="aboutus">
+            <fa-icon [icon]="faCircleInfo"></fa-icon> AboutUs
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="contactus">
+            <fa-icon [icon]="faEnvelope"></fa-icon> Contactus
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="careers">
+            <fa-icon [icon]="faBriefcase"></fa-icon> Careers
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link" routerLink="users" routerLinkActive="active">
+            <fa-icon [icon]="faUsers"></fa-icon> Users
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="product" routerLinkActive="active">
+            <fa-icon [icon]="faBox"></fa-icon> Product
+          </a>
         </li>
       </ul>
       <form class="d-flex" role="search">
