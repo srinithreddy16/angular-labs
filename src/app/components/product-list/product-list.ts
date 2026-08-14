@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import product_data from './product_data';
@@ -13,7 +14,7 @@ import { DisableCopyPaste } from '../../directives/disable-copy-paste';
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [FontAwesomeModule, NgxPaginationModule, CommonModule, FormsModule, Charonly, DisableCopyPaste],
+  imports: [FontAwesomeModule, NgxPaginationModule, CommonModule, FormsModule, Charonly, DisableCopyPaste, RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })

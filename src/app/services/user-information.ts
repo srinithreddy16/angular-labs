@@ -5,9 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class UserInformation {
   private current_user = 'Srinith';
+  private role = 'trainer';
 
   getCurrentUser() {
     return this.current_user;
+  }
+
+  getUserRole(){
+    return this.role;
   }
 
   

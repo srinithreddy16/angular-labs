@@ -34,6 +34,8 @@
               <fa-icon [icon]="faStar" style="color: gold"></fa-icon>
             </p>
             <button class="btn btn-primary" (click)="openAlert()">Buy Now</button>
+            <button class="btn btn-primary mx-1" [routerLink]="['/productdetails']"
+              [queryParams]="{id:product.id,title:product.title,price:product.price}">Details</button>
           </div>
         </div>
       </div>
