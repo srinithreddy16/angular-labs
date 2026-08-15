@@ -1,1 +1,7 @@
-<p>home works!</p>
+<h1 class="text-center">This is Home Component</h1>
+
+@defer {
+  <ng-container *ngComponentOutlet="heavyComponent"></ng-container>
+} @placeholder (minimum 500ms) {
+  <h1>Component is being prepared</h1>
+}
