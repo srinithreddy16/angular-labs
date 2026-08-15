@@ -33,7 +33,7 @@ ng test
 
 ### 2. Data binding
 - Interpolation: `{{ value }}`
-- Property binding: `[src]`, `[disabled]`, `[hidden]`, `bind-*`
+- Property binding: `[src]`, `[disabled]`, `[hidden]`
 - Event binding: `(click)`
 - Two-way binding: `[(ngModel)]` with `FormsModule`
 - Assignments: show/hide, dropdown selection, password toggle, counter, Celsius → Fahrenheit, calculator, color picker
@@ -75,8 +75,9 @@ ng test
 - Ratings component (star UI)
 - Categories / Category (parent passes data to child cards)
 - Cart component
+- Password generator (length, character options, copy to clipboard)
 
-**Where:** `product-list`, `ratings`, `categories`, `category`, `cart`
+**Where:** `product-list`, `ratings`, `categories`, `category`, `cart`, `password-generator`
 
 ---
 
@@ -119,10 +120,10 @@ ng test
 - Creating a service with `@Injectable({ providedIn: 'root' })`
 - Injecting via constructor DI
 - Injecting via `inject()`
-- Sharing data across components (`UserInformation.getCurrentUser()`)
-- Note: Angular uses `@Injectable`, not `@Service`
+- Sharing data across components (`UserInformation.getCurrentUser()`, `getUserRole()`)
+- Employee / Product HTTP services
 
-**Where:** `src/app/services/user-information.ts`, `login`, `logout`
+**Where:** `src/app/services/`
 
 ---
 
@@ -134,26 +135,104 @@ ng test
   - **Child (`EmployeeAdd`)** form, emits new employee
 - Spread operator `{...obj}` when emitting (send a copy, then clear form)
 - Confirm delete, snackbar on add
+- Later employee demos with services / HTTP (`employee3`, `employee4`, `employee-list-http2`)
 
-**Where:** `employee-crud`, `employee2-crud`, `employee-table`, `employee-add`
+**Where:** `employee-crud`, `employee2-crud`, `employee-table`, `employee-add`, `employee3`, `employee4`
 
 ---
 
-### 11. Third-party libraries used in demos
+### 11. HTTP & RxJS Observables
+- `HttpClient` + `provideHttpClient`
+- Fetching lists from APIs (products, comments, users, employees)
+- Loading state with signals
+- Operators: `forkJoin`, `mergeMap`, `concatMap`
+- Subjects: `Subject`, `BehaviorSubject`, `ReplaySubject`, `AsyncSubject`
+
+**Where:** `observable-demo1`–`4`, `subject-demo1`, `product-list-http`, `comment-list`, `user-details`
+
+---
+
+### 12. HTTP interceptors
+- Functional interceptors with `withInterceptors([...])`
+- Auth interceptor
+- Retry interceptor
+- Error interceptor
+
+**Where:** `src/app/interceptors/`, `app.config.ts`
+
+---
+
+### 13. Angular Signals
+- Writable signals: `signal()`, `.set()`, `.update()`
+- Reading signals in templates: `value()`
+- `computed()` for derived state
+- `linkedSignal()` for dependent state
+- Signals + HTTP (fetch user by id)
+- Todo list with completed / remaining computed lists
+
+**Where:** `signal-demo1`–`5`
+
+---
+
+### 14. Forms
+- Template-driven forms (`ngModel`, `NgForm`, validation)
+- Reactive / model-driven forms (`FormGroup`, `FormControl`)
+- Dynamic forms
+- Registration form
+- Signal forms API (`form()`, `FormField`, `required`, `email`, `validate`)
+- Signal form validation (password match)
+
+**Where:** `form-demo1`, `template-form`, `model-form`, `dynamic-form`, `registration-form`, `signal-form`, `signal-form-validation`, `contactus`
+
+---
+
+### 15. Routing
+- `Routes` config + `provideRouter`
+- `routerLink` / `routerLinkActive`
+- Default route (`''`) and wildcard (`**`) → Notfound
+- Nested / child routes (Careers → Permanent / Contract + nested `router-outlet`)
+- Route params: `userdetails/:id` + `ActivatedRoute`
+- Query params: product details (`id`, `title`, `price`)
+- Programmatic navigation: `Router.navigateByUrl()`, `Location.back()` / `forward()`
+- Navbar icons with Font Awesome for route links
+
+**Where:** `app.routes.ts`, `navbar`, `careers`, `aboutus`, `user-list`, `user-details`, `product-details`
+
+---
+
+### 16. Route guards
+- `canActivate` — role-based access (`trainerGuard` for upload videos)
+- `canDeactivate` — block leave when form has unsaved changes (`canExitGuard` on contactus)
+
+**Where:** `src/app/guards/`, `upload-videos`, `contactus`
+
+---
+
+### 17. Lazy loading & deferred loading
+- Route-level lazy loading with `loadComponent` + dynamic `import()` (Product list)
+- Component-level deferred loading with `@defer` / `@placeholder`
+- Dynamic component load with `NgComponentOutlet` + `import()` (Heavy component on Home)
+
+**Where:** `app.routes.ts` (`products`), `home`, `heavy-component`
+
+---
+
+### 18. Third-party libraries used in demos
 - Bootstrap (layout / UI)
 - Font Awesome icons
 - SweetAlert2 (`Swal`)
 - awesome-snackbar
 - ngx-pagination
 
-**Where:** `employee-crud`, `product-list`, `employee2-crud`
+**Where:** `employee-crud`, `product-list`, `employee2-crud`, `navbar`
 
 ---
 
-### 12. Small supporting ideas
+### 19. Small supporting ideas
 - Constants file for messages (`MESSAGES.EMPLOYEE_ADDED`)
 - Conditional rendering with `@if (flag)` to create/destroy components
 - Standalone component imports vs NgModules (this project uses standalone)
+- Static data files (`product_data`, `user_data`)
 
 ---
 
@@ -167,7 +246,14 @@ ng test
 6. Template refs + ViewChild  
 7. Lifecycle hooks (+ `ngOnDestroy` cleanup)  
 8. Services + DI  
-9. Employee CRUD split (parent owns logic)
+9. Employee CRUD split (parent owns logic)  
+10. HTTP + Observables + Subjects  
+11. Interceptors  
+12. Signals  
+13. Forms (template → reactive → signal forms)  
+14. Routing + nested routes + params / query params  
+15. Guards (`canActivate` / `canDeactivate`)  
+16. Lazy loading + `@defer`
 
 ---
 
@@ -175,4 +261,4 @@ ng test
 
 Personal teaching notes also live in [`NOTES.md`](./NOTES.md) (parent–child data flow cheatsheet).
 
-Routing is set up (`app.routes.ts`) but routes are empty for now — not covered in depth yet.
+Many practice demos live under `body.html` (often commented while focusing on routing). Routed pages are reached from the navbar: Home, About, Careers, Contact, Users, Products, Upload Videos.
