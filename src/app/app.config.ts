@@ -8,6 +8,10 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideStore } from '@ngrx/store';
 import { myStore } from './store/store';
+import { provideEffects } from '@ngrx/effects';
+import { EmployeeEffects } from './effects/employee.effects';
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +20,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([authInterceptor, retryInterceptor, errorInterceptor])),
     provideStore(myStore),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideEffects(EmployeeEffects),
   ],
 };

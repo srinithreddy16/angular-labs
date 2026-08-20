@@ -33,12 +33,12 @@ import { RegistrationForm } from '../registration-form/registration-form';
 import { RouterOutlet } from '@angular/router';
 import { MaterialDemo } from "../material-demo/material-demo";
 import { Counter } from '../counter/counter';
-import { count } from 'rxjs';
 import { TodoCrud } from '../todo-crud/todo-crud';
+import { EmployeeCrud3 } from '../employee-crud3/employee-crud3';
 
 @Component({
   selector: 'app-body',
-  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5, FormDemo1, TemplateForm, ModelForm, DynamicForm, SignalForm, SignalFormValidation, RegistrationForm, PasswordGenerator, RouterOutlet, MaterialDemo, Counter, TodoCrud],
+  imports: [EmployeeCRUD, PipeDemo, Ratings, ParentDemo, Categories, Employee2CRUD, Login, Logout, Employee3, CommentList, Employee4, ProductListHttp, EmployeeListHttp2, ObservabaleDemo2, ObservableDemo1, ObservableDemo3, ObservableDemo4, SubjectDemo1, SignalDemo1, SignalDemo2, SignalDemo3, SignalDemo4, SignalDemo5, FormDemo1, TemplateForm, ModelForm, DynamicForm, SignalForm, SignalFormValidation, RegistrationForm, PasswordGenerator, RouterOutlet, MaterialDemo, Counter, TodoCrud, EmployeeCrud3],
   templateUrl: './body.html',
   styleUrl: './body.css',
 })
