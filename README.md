@@ -17,6 +17,8 @@ ng build
 ng test
 ```
 
+For employee NgRx demos that call the API, run a local JSON server (or similar) on `http://localhost:3000/employees`.
+
 ---
 
 ## Topics covered so far
@@ -26,8 +28,9 @@ ng test
 - Standalone components (`@Component`, `imports` array)
 - App shell layout: `Navbar`, `Categories`, `Carousel`, `Body`, `Footer`
 - How to generate and register a component in a parent (`body.ts` + `body.html`)
+- Models / interfaces (`Employee3`, `Todo`, etc.)
 
-**Where:** `src/app/app.ts`, `src/app/app.html`, `src/app/components/*`
+**Where:** `src/app/app.ts`, `src/app/app.html`, `src/app/components/*`, `src/app/models/`
 
 ---
 
@@ -65,8 +68,9 @@ ng test
   - `SalutationPipe`
   - `MysortPipe`
   - `FilterSearchPipe`
+- Async pipe (`| async`) with Observables from the store
 
-**Where:** `src/app/components/pipe-demo/`, `src/app/pipes/`
+**Where:** `src/app/components/pipe-demo/`, `src/app/pipes/`, also used in NgRx demos
 
 ---
 
@@ -122,12 +126,13 @@ ng test
 - Injecting via `inject()`
 - Sharing data across components (`UserInformation.getCurrentUser()`, `getUserRole()`)
 - Employee / Product HTTP services
+- `EmployeeService3` used by NgRx effects for API calls
 
 **Where:** `src/app/services/`
 
 ---
 
-### 10. CRUD & forms (Employee)
+### 10. CRUD & forms (Employee — without NgRx)
 - Single-component CRUD: add / view / delete (modals, `ngModel`)
 - Split CRUD (better design):
   - **Parent (`Employee2CRUD`)** owns `employees` array + all logic
@@ -181,6 +186,7 @@ ng test
 - Registration form
 - Signal forms API (`form()`, `FormField`, `required`, `email`, `validate`)
 - Signal form validation (password match)
+- Contact form with nested `ngModelGroup` and unsaved-change tracking
 
 **Where:** `form-demo1`, `template-form`, `model-form`, `dynamic-form`, `registration-form`, `signal-form`, `signal-form-validation`, `contactus`
 
@@ -217,22 +223,85 @@ ng test
 
 ---
 
-### 18. Third-party libraries used in demos
+### 18. Angular Material
+- Material theming (`material-theme.scss`, Material 3 `mat.theme()`)
+- Material Buttons (`matButton` variants)
+- Material Card (`mat-card`, header, image, actions)
+- Material SnackBar (`MatSnackBar`)
+- Material Table (`mat-table`, `MatTableDataSource`, column defs)
+- Material Form Field + Input filter on table
+- Static table data (`table_data.ts` / `ELEMENT_DATA`)
+
+**Where:** `material-demo/`, `src/material-theme.scss`, `angular.json` styles
+
+---
+
+### 19. NgRx Store (state management)
+- Installing / configuring `@ngrx/store`, `@ngrx/effects`, `@ngrx/store-devtools`
+- Registering the store with `provideStore(myStore)` in `app.config.ts`
+- Combining feature slices in one store object (`countData`, `todoData`, `employeeData`)
+- **Actions** with `createAction` / `props`
+- **Reducers** with `createReducer` / `on`
+- **Selectors** via `store.select(...)`
+- **Dispatch** via `store.dispatch(...)`
+- Reading store state in templates with `| async`
+
+**Demos:**
+- Counter: increment / decrement / reset
+- Todo CRUD: add / delete / toggle (local store only)
+- Employee CRUD: list + delete driven by store + effects + HTTP
+
+**Where:**
+- `src/app/store/store.ts`
+- `src/app/actions/` (`counter`, `todo`, `employee`)
+- `src/app/reducers/` (`counter`, `todo`, `employee`)
+- `src/app/components/counter/`
+- `src/app/components/todo-crud/`
+- `src/app/components/employee-crud3/`
+
+---
+
+### 20. NgRx Effects (async / side effects)
+- `@ngrx/effects` + `provideEffects(EmployeeEffects)`
+- `createEffect`, `ofType`, `exhaustMap`, `map`, `catchError`
+- Calling HTTP from effects (`EmployeeService3`)
+- Success / error actions (`fetchEmployeesSucess`, `fetchEmployeesError`)
+- After delete/add → re-fetch employees
+- Alerts for success feedback
+
+**Where:** `src/app/effects/employee.effects.ts`, `employee-service3.ts`, `employee.actions.ts`
+
+---
+
+### 21. NgRx Store DevTools
+- `@ngrx/store-devtools`
+- `provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })`
+- Inspecting actions and state in Redux DevTools (browser extension)
+
+**Where:** `app.config.ts`
+
+---
+
+### 22. Third-party libraries used in demos
 - Bootstrap (layout / UI)
 - Font Awesome icons
 - SweetAlert2 (`Swal`)
 - awesome-snackbar
 - ngx-pagination
+- Angular Material + CDK
+- NgRx Store / Effects / Store DevTools
 
-**Where:** `employee-crud`, `product-list`, `employee2-crud`, `navbar`
+**Where:** used across product, employee, navbar, material-demo, and NgRx demos
 
 ---
 
-### 19. Small supporting ideas
+### 23. Small supporting ideas
 - Constants file for messages (`MESSAGES.EMPLOYEE_ADDED`)
 - Conditional rendering with `@if (flag)` to create/destroy components
 - Standalone component imports vs NgModules (this project uses standalone)
-- Static data files (`product_data`, `user_data`)
+- Static data files (`product_data`, `user_data`, `table_data`)
+- Build / deploy with `ng build` (test → build → deploy)
+- Practice demos often commented in `body.html` while focusing on one topic
 
 ---
 
@@ -253,7 +322,10 @@ ng test
 13. Forms (template → reactive → signal forms)  
 14. Routing + nested routes + params / query params  
 15. Guards (`canActivate` / `canDeactivate`)  
-16. Lazy loading + `@defer`
+16. Lazy loading + `@defer`  
+17. Angular Material UI  
+18. NgRx Store (actions, reducers, selectors, dispatch)  
+19. NgRx Effects + Store DevTools  
 
 ---
 
@@ -261,4 +333,6 @@ ng test
 
 Personal teaching notes also live in [`NOTES.md`](./NOTES.md) (parent–child data flow cheatsheet).
 
-Many practice demos live under `body.html` (often commented while focusing on routing). Routed pages are reached from the navbar: Home, About, Careers, Contact, Users, Products, Upload Videos.
+Many practice demos live under `body.html` (often commented while focusing on routing / NgRx / Material). Routed pages are reached from the navbar: Home, About, Careers, Contact, Users, Products, Upload Videos.
+
+NgRx demos (Counter, Todo, Employee CRUD 3) and Material demo are typically shown from `body.html`.
